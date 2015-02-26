@@ -1,0 +1,52 @@
+<html>
+
+<head>
+
+<title> Start </title>
+
+<script src="processing-1.4.1.js">
+</script>
+
+<script type="text/processing" data-processing-target="mycanvas">
+
+
+
+PImage Title;
+
+void setup(){
+
+
+size( 1000, 1000 );
+
+frameRate( 30 );
+
+
+Title = loadImage("Reign/Title.jpg");
+}
+
+void draw()
+{
+background(255,255,255);
+
+image(Title,0,0,750,500);
+fill(0,0,0);
+rect(400,400,50,50);
+fill(255,255,255);
+text("Play",415,415);
+if(mousePressed == true && mouseButton == LEFT)
+{
+  if(mouseX > 400 &&  mouseX < 450 && mouseY > 400 && mouseY < 450)
+   {
+    link("Game.html")
+   }
+}
+}
+
+</script>
+<canvas id="mycanvas"></canvas>
+</head>
+
+<body>
+
+</body>
+</html>

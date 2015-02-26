@@ -1,0 +1,52 @@
+<html>
+
+<head>
+
+<title> Lost </title>
+
+<script src="processing-1.4.1.js">
+</script>
+
+<script type="text/processing" data-processing-target="mycanvas">
+
+
+
+PImage lose;
+
+void setup(){
+
+
+size( 1000, 1000 );
+
+frameRate( 30 );
+
+
+lose = loadImage("Reign/lose.png");
+}
+
+void draw()
+{
+background(255,255,255);
+
+image(lose,0,0,500,500);
+fill(0,0,0);
+rect(400,400,50,50);
+fill(255,255,255);
+text("Play again",415,415);
+if(mousePressed == true && mouseButton == LEFT)
+{
+  if(mouseX > 400 &&  mouseX < 450 && mouseY > 400 && mouseY < 450)
+   {
+    link("Start.html")
+   }
+}
+}
+
+</script>
+<canvas id="mycanvas"></canvas>
+</head>
+
+<body>
+
+</body>
+</html>

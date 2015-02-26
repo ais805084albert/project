@@ -1,0 +1,588 @@
+<html>
+<head>
+<title> Game </title>
+<script src="processing-1.4.1.js"></script>
+<script type="text/processing" data-processing-target="mycanvas">
+<script type="text/javascript" src="script/soundmanager2.js"></script>
+<script type="text/javascript" src="script/loadsoundchrome.js"></script>
+<center>
+	<script type="text/javascript" src="script/processing-1.4.1.js"></script>
+	<script type="text/processing" data-processing-target="mycanvas">
+
+	/* @pjs globalKeyEvents ="true"; */
+
+int orangeBallX;
+int orangeBallY;
+boolean jump = false;
+boolean direction = false;
+boolean lose = false;
+int ground;
+int blueRectangleX;
+int blueRectangleY;
+int lengthX;
+int widthY;
+int moveBlue;
+int blueRectangleX2;
+int blueRectangleY2;
+int lengthX2;
+int widthY2;
+int blueRectangleX3;
+int blueRectangleY3;
+int lengthX3;
+int widthY3;
+int moveBlue2;
+int blackRectangleX;
+int blackRectangleY;
+int lengthX4;
+int widthY4;
+int moveBlack;
+int blueRectangleX4;
+int blueRectangleY4;
+int lengthX5;
+int widthY5;
+int blueRectangleX5;
+int blueRectangleY5;
+int lengthX6;
+int widthY6;
+int moveBlue3;
+int blueRectangleX6;
+int blueRectangleY6;
+int lengthX7;
+int widthY7;
+int moveBlue4;
+int blueRectangleX7;
+int blueRectangleY7;
+int blueRectangleX8;
+int blueRectangleY8;
+int moveBlue5;
+int blueRectangleX9;
+int blueRectangleY9;
+int blueRectangleX10;
+int blueRectangleY10;
+int moveBlue6;
+int blueRectangleX11;
+int blueRectangleY11;
+int blueRectangleX12;
+int blueRectangleY12;
+int blueRectangleX13;
+int blueRectangleY13;
+int moveBlue7;
+int blackRectangleX2;
+int blackRectangleY2;
+int blueRectangleX14;
+int blueRectangleY14;
+int moveBlue8;
+int blueRectangleX15;
+int blueRectangleY15;
+int blueRectangleX16;
+int blueRectangleY16;
+int moveBlue9;
+int blueRectangleX17;
+int blueRectangleY17;
+int lengthX8;
+int moveBlue10;
+int soundEffect1;
+
+void setup(){
+
+size( 500, 500 );
+frameRate( 30 );
+
+
+orangeBallX = 50;
+orangeBallY = 325;
+
+ground = 350;
+
+
+blueRectangleX = 550;
+blueRectangleY = 303;
+
+lengthX = 50;
+widthY = 50;
+
+moveBlue = 1;
+
+blueRectangleX2 = 550;
+blueRectangleY2 = 303;
+
+lengthX2 = 50;
+widthY2 = 50;
+
+blueRectangleX3 = 600;
+blueRectangleY3 = 303;
+
+lengthX3 = 50;
+widthY3 = 50;
+
+
+moveBlue2 = 0;
+
+blackRectangleX = 550;
+blackRectangleY = 350;
+
+
+lengthX4 = 100;
+widthY4 = 25;
+
+moveBlack = 0;
+
+blueRectangleX4 = 500;
+blueRectangleY4 = 233;
+
+lengthX5 = 150;
+widthY5 = 50;
+
+blueRectangleX5 = 750;
+blueRectangleY5 = 303;
+
+lengthX6 = 50;
+widthY6 = 50;
+
+moveBlue3 = 0;
+
+blueRectangleX6 = 500;
+blueRectangleY6 = 303;
+
+lengthX7 = 50;
+widthY7 = 50;
+
+moveBlue4 = 0;
+
+blueRectangleX7 = 550;
+blueRectangleY7 = 303;
+
+blueRectangleX8 = 600;
+blueRectangleY8 = 303;
+
+
+moveBlue5 = 0;
+
+blueRectangleX9 = 550;
+blueRectangleY9 = 303;
+
+blueRectangleX10 = 800;
+blueRectangleY10 = 303;
+
+
+moveBlue6 = 0;
+
+blueRectangleX11 = 550;
+blueRectangleY11 = 303;
+
+blueRectangleX12 = 800;
+blueRectangleY12 = 303;
+
+blueRectangleX13 = 1100;
+blueRectangleY13 = 303;
+
+
+moveBlue7 = 0;
+
+blackRectangleX2 = 550;
+blackRectangleY2 = 350;
+
+blueRectangleX14 = 720;
+blueRectangleY14 = 303;
+
+moveBlue8 = 0;
+
+blueRectangleX15 = 550;
+blueRectangleY15 = 303;
+
+blueRectangleX16 = 600;
+blueRectangleY16 = 303;
+
+moveBlue9 = 0;
+
+blueRectangleX17 = 550;
+blueRectangleY17 = 303;
+lengthX8 = 50;
+
+moveBlue10 = 0;
+
+soundEffect1 = 0;
+}
+
+
+void draw()
+{
+background(50,50,50);
+
+fill(255,166,0);
+ellipse(orangeBallX,orangeBallY,50,50);
+
+
+if(keyPressed == true)
+{
+  if(key == 'a')
+  {
+   jump = true;
+  }
+  
+}
+
+if(jump == true)
+{
+ if(direction == false)
+ {
+  orangeBallY = orangeBallY - 12;
+ }
+ if(orangeBallY <= 200)
+ {
+  direction = true;
+ }
+ if(direction == true)
+ {
+  orangeBallY = orangeBallY + 12;
+ }
+ if(orangeBallY >= 325)
+ {
+  direction = false;
+  jump = false;
+ }
+ }
+
+if(soundEffect1 == 1)
+{
+soundManager.play('s1');
+}
+
+if(lose == true)
+{
+link("Loser.html");
+}
+
+
+if(orangeBallX >= blueRectangleX && orangeBallX <= blueRectangleX + 100 && orangeBallY >= blueRectangleY && orangeBallY <= blueRectangleY + 100)
+{
+soundEffect1 = 1;
+lose = true;
+}
+
+
+if(orangeBallX >= blueRectangleX2 && orangeBallX <= blueRectangleX2 + 100 && orangeBallY >= blueRectangleY2 && orangeBallY <= blueRectangleY2 + 100)
+{
+soundEffect1 = 1;
+lose = true;
+}
+
+if(orangeBallX >= blueRectangleX3 && orangeBallX <= blueRectangleX3 + 100 && orangeBallY >= blueRectangleY3 && orangeBallY <= blueRectangleY3 + 100)
+{
+soundEffect1 = 1;
+lose = true;
+}
+
+if(orangeBallX >= blueRectangleX4 && orangeBallX <= blueRectangleX4 + 100 && orangeBallY >= blueRectangleY4 && orangeBallY <= blueRectangleY4 + 100)
+{
+soundEffect1 = 1;
+lose = true;
+}
+
+if(orangeBallX >= blueRectangleX5 && orangeBallX <= blueRectangleX5 + 100 && orangeBallY >= blueRectangleY5 && orangeBallY <= blueRectangleY5 + 100)
+{
+soundEffect1 = 1;
+lose = true;
+}
+
+if(orangeBallX >= blueRectangleX6 && orangeBallX <= blueRectangleX6 + 100 && orangeBallY >= blueRectangleY6 && orangeBallY <= blueRectangleY6 + 100)
+{
+soundEffect1 = 1;
+lose = true;
+}
+
+if(orangeBallX >= blueRectangleX7 && orangeBallX <= blueRectangleX7 + 100 && orangeBallY >= blueRectangleY7 && orangeBallY <= blueRectangleY7 + 100)
+{
+soundEffect1 = 1;
+lose = true;
+}
+
+if(orangeBallX >= blueRectangleX8 && orangeBallX <= blueRectangleX8 + 100 && orangeBallY >= blueRectangleY8 && orangeBallY <= blueRectangleY8 + 100)
+{
+soundEffect1 = 1;
+lose = true;
+}
+
+if(orangeBallX >= blueRectangleX9 && orangeBallX <= blueRectangleX9 + 100 && orangeBallY >= blueRectangleY9 && orangeBallY <= blueRectangleY9 + 100)
+{
+soundEffect1 = 1;
+lose = true;
+}
+
+if(orangeBallX >= blueRectangleX10 && orangeBallX <= blueRectangleX10 + 100 && orangeBallY >= blueRectangleY10 && orangeBallY <= blueRectangleY10 + 100)
+{
+soundEffect1 = 1;
+lose = true;
+}
+
+if(orangeBallX >= blueRectangleX11 && orangeBallX <= blueRectangleX11 + 100 && orangeBallY >= blueRectangleY11 && orangeBallY <= blueRectangleY11 + 100)
+{
+soundEffect1 = 1;
+lose = true;
+}
+
+if(orangeBallX >= blueRectangleX12 && orangeBallX <= blueRectangleX12 + 100 && orangeBallY >= blueRectangleY12 && orangeBallY <= blueRectangleY12 + 100)
+{
+soundEffect1 = 1;
+lose = true;
+}
+
+if(orangeBallX >= blueRectangleX13 && orangeBallX <= blueRectangleX13 + 100 && orangeBallY >= blueRectangleY13 && orangeBallY <= blueRectangleY13 + 100)
+{
+soundEffect1 = 1;
+lose = true;
+}
+
+if(orangeBallX >= blueRectangleX14 && orangeBallX <= blueRectangleX14 + 100 && orangeBallY >= blueRectangleY14 && orangeBallY <= blueRectangleY14 + 100)
+{
+soundEffect1 = 1;
+lose = true;
+}
+
+if(orangeBallX >= blueRectangleX15 && orangeBallX <= blueRectangleX15 + 100 && orangeBallY >= blueRectangleY15 && orangeBallY <= blueRectangleY15 + 100)
+{
+soundEffect1 = 1;
+lose = true;
+}
+
+if(orangeBallX >= blueRectangleX16 && orangeBallX <= blueRectangleX16 + 100 && orangeBallY >= blueRectangleY16 && orangeBallY <= blueRectangleY16 + 100)
+{
+soundEffect1 = 1;
+lose = true;
+}
+
+if(orangeBallX >= blueRectangleX17 && orangeBallX <= blueRectangleX17 + 100 && orangeBallY >= blueRectangleY17 && orangeBallY <= blueRectangleY17 + 100)
+{
+soundEffect1 = 1;
+lose = true;
+}
+
+if(orangeBallX >= blackRectangleX && orangeBallX <= blackRectangleX + 100 && orangeBallY >= blackRectangleY && orangeBallY <= blackRectangleY + 100)
+{
+soundEffect1 = 1;
+lose = true;
+}
+
+
+if(orangeBallX >= blackRectangleX2 && orangeBallX <= blackRectangleX2 + 100 && orangeBallY >= blackRectangleY2 && orangeBallY <= blackRectangleY2 + 100)
+{
+soundEffect1 = 1;
+lose = true;
+}
+
+
+fill(0,0,255);
+rect(0,ground,500,25);
+
+
+if(moveBlue == 1)
+{
+fill(0,0,255);
+rect(blueRectangleX, blueRectangleY,lengthX,widthY);
+
+blueRectangleX = blueRectangleX - 10;
+}
+
+if(blueRectangleX < 0)
+{
+moveBlue = 0;
+moveBlue2 = 1;
+}
+
+if(orangeBallX == blueRectangleX && orangeBallY == blueRectangleY)
+{
+link("Loser.html")
+}
+
+
+
+if(moveBlue2 == 1)
+{
+fill(0,0,255);
+rect(blueRectangleX2, blueRectangleY2,lengthX2,widthY2);
+
+fill(0,0,255);
+rect(blueRectangleX3, blueRectangleY3,lengthX3,widthY3);
+
+blueRectangleX2 = blueRectangleX2 - 13;
+blueRectangleX3 = blueRectangleX3 - 13;
+}
+
+
+if(moveBlack == 1)
+{
+fill(0,0,0);
+rect(blackRectangleX,blackRectangleY,lengthX4,widthY4);
+
+blackRectangleX = blackRectangleX - 10;
+}
+
+if(blueRectangleX2 < 0 && blueRectangleX3 < 0)
+{
+moveBlue2 = 0;
+moveBlack = 1;
+}
+
+if(blackRectangleX < 0)
+{
+moveBlack = 0;
+moveBlue3 = 1;
+}
+
+if(moveBlue3 == 1)
+{
+fill(0,0,255);
+rect(blueRectangleX4, blueRectangleY4,lengthX5,widthY5);
+
+fill(0,0,255);
+rect(blueRectangleX5, blueRectangleY5,lengthX6,widthY6);
+
+blueRectangleX4 = blueRectangleX4 - 10;
+blueRectangleX5 = blueRectangleX5 - 10;
+}
+
+
+if(moveBlue4 == 1)
+{
+fill(0,0,255);
+rect(blueRectangleX6, blueRectangleY6,lengthX7,widthY7);
+
+blueRectangleX6 = blueRectangleX6 - 15;
+}
+
+if(blueRectangleX5 < 0)
+{
+moveBlue3 = 0;
+moveBlue4 = 1;
+}
+
+if(moveBlue5 == 1)
+{
+fill(0,0,255);
+rect(blueRectangleX7, blueRectangleY7,lengthX7,widthY7);
+fill(0,0,255);
+rect(blueRectangleX8, blueRectangleY8,lengthX7,widthY7);
+
+blueRectangleX7 = blueRectangleX7 - 15;
+
+blueRectangleX8 = blueRectangleX8 - 15;
+}
+
+if(blueRectangleX6 < 0)
+{
+moveBlue4 = 0;
+moveBlue5 = 1;
+}
+
+if(moveBlue6 == 1)
+{
+fill(0,0,255);
+rect(blueRectangleX9, blueRectangleY9,lengthX7,widthY7);
+fill(0,0,255);
+rect(blueRectangleX10, blueRectangleY10,lengthX7,widthY7);
+
+blueRectangleX9 = blueRectangleX9 - 15;
+
+blueRectangleX10 = blueRectangleX10 - 15;
+}
+
+if(blueRectangleX8 < 0)
+{
+moveBlue5 = 0;
+moveBlue6 = 1;
+}
+
+if(moveBlue7 == 1)
+{
+fill(0,0,255);
+rect(blueRectangleX11, blueRectangleY11,lengthX7,widthY7);
+fill(0,0,255);
+rect(blueRectangleX12, blueRectangleY12,lengthX7,widthY7);
+fill(0,0,255);
+rect(blueRectangleX13, blueRectangleY13,lengthX7,widthY7);
+
+blueRectangleX11 = blueRectangleX11 - 15;
+
+blueRectangleX12 = blueRectangleX12 - 15;
+
+blueRectangleX13 = blueRectangleX13 - 15;
+}
+
+if(blueRectangleX10 < 0)
+{
+moveBlue6 = 0;
+moveBlue7 = 1;
+}
+
+if(moveBlue8 == 1)
+{
+fill(0,0,0);
+rect(blackRectangleX2,blackRectangleY2,lengthX4,widthY4);
+fill(0,0,255);
+rect(blueRectangleX14, blueRectangleY14,lengthX7,widthY7);
+
+blackRectangleX2 = blackRectangleX2 - 20;
+
+blueRectangleX14 = blueRectangleX14 - 20;
+}
+
+if(blueRectangleX13 < 0)
+{
+moveBlue7 = 0;
+moveBlue8 = 1;
+}
+
+if(moveBlue9 == 1)
+{
+fill(0,0,255);
+rect(blueRectangleX15, blueRectangleY15,lengthX7,widthY7);
+fill(0,0,255);
+rect(blueRectangleX16, blueRectangleY16,lengthX7,widthY7);
+
+blueRectangleX15 = blueRectangleX15 - 15;
+
+blueRectangleX16 = blueRectangleX16 - 15;
+}
+
+if(blueRectangleX14 < 0)
+{
+moveBlue8 = 0;
+moveBlue9 = 1;
+}
+
+
+if(moveBlue10 == 1)
+{
+fill(0,0,255);
+rect(blueRectangleX17, blueRectangleY17,lengthX8,widthY7);
+
+
+blueRectangleX17 = blueRectangleX17 - 13;
+}
+
+if(blueRectangleX16 < 250)
+{
+lengthX8 = lengthX8 + 1;
+}
+
+if(blueRectangleX16 < 0)
+{
+moveBlue9 = 0;
+moveBlue10 = 1;
+}
+
+if(blueRectangleX17 < 0)
+{
+link("Start.html");
+}
+
+}
+
+</script>
+<canvas id="mycanvas"></canvas>
+</head>
+
+<body>
+
+</body>
+</html>
